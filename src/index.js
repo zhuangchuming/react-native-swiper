@@ -122,7 +122,8 @@ export default class extends Component {
     dotStyle: PropTypes.object,
     activeDotStyle: PropTypes.object,
     dotColor: PropTypes.string,
-    activeDotColor: PropTypes.string
+    activeDotColor: PropTypes.string,
+    flex:PropTypes.number,
   }
 
   /**
@@ -625,7 +626,10 @@ export default class extends Component {
     }
 
     return (
-      <View style={[styles.container, {
+      <View style={[styles.container, this.props.flex ? {
+        width: state.width,
+        flex:this.props.flex
+      }:{
         width: state.width,
         height: state.height
       }]}>
